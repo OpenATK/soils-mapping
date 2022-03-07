@@ -1,0 +1,9 @@
+.soil-info {
+  display: flex;
+  flex-direction: row;
+  flex: 2;
+  width: 30vw;
+  max-width: 300px;
+  background-color: #BDBDBD;
+  font-family: sans-serif;
+}
