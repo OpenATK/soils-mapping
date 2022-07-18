@@ -88,8 +88,13 @@ export default {
     let ptb = transformPoint(pt.x, pt.y, 4096, Math.pow(2,zoom), xtile, ytile)
 
     console.log(props);
-    let lay = props.target._layers[19];
-    let feats = lay ? (lay.tiles.get(zoom, xtile, ytile) || {}).features || []: [];
+    //let lay = props.target._layers[19];
+    let lay = props.target._layers[21];
+    console.log({lay}, props.target, {zoom,xtile, ytile});
+    console.log({thing: lay.tiles.get})
+    console.log(lay.tiles.get(zoom,xtile,ytile))
+    let feats = lay ? (lay.tiles.get({z:zoom, x:xtile, y:ytile}) || {}).features || []: [];
+    console.log(feats);
     let mukeys = feats.filter(feat => 
       feat.geometry.some(f => pip(ptb, f))
     ).map(feat => feat.id);

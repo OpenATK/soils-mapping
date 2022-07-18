@@ -7,15 +7,18 @@ export default {
   async connect({actions, state, effects}, {domain, token}) {
     const myState = state.OADAManager;
     const myActions = actions.OADAManager;
-//    if (token) myState.token = token;
+    if (token) myState.token = token;
 //    token = await myActions.getToken(domain);
+    console.log('another thing', token, domain);
+    console.log(actions.oada.connect);
     return actions.oada.connect({
-//      token,
+      token,
       domain: domain,
       options: config.OPTIONS,
       cache: false,
       concurrency: 1,
     }).then((response) => {
+      console.log({response});
       if (!response.error) {
         myState.currentConnection = response.connectionId;
         myState.token = response.token;
@@ -98,7 +101,10 @@ export default {
     const myState = state.OADAManager;
     const myActions = actions.OADAManager;
     myState.domain = domain;
+    console.log('thing', domain, token);
+    token = 'def'
     const {error} = await myActions.connect({domain, token});
+    console.log({error});
     if (!error) {
       await myActions.getUserInfo();
       await actions.soils.initialize();

@@ -8,6 +8,7 @@ import * as soils from './soils'
 import * as app from './app'
 import * as OADAManager from './OADAManager'
 import oadaCacheOvermind from '@oada/oada-cache-overmind'
+//import oadaCacheOvermind from '../oada-cache-overmind/index'
 
 const oada = oadaCacheOvermind('oada');
 

@@ -21,9 +21,9 @@ export default {
         let style = {
           fillColor: col,
           color: col,
-          opacity: 0.9999,
+          opacity: 0.25,
           weight: 1,
-          fillOpacity:0.9999
+          fillOpacity:0.25
         }
         //if (this.options.style) this.setStyle(ctx, this.options.style);
         this.setStyle(ctx, style)

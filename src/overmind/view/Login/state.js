@@ -1,4 +1,5 @@
 import config from '../../../config'
 export default {
-  domain: config.oadaDomain
+  domain: config.oadaDomain,
+//  loggedIn: true
 }

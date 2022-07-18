@@ -6,10 +6,20 @@ import draw from './draw'
 
 export default {
   async initialize({state, actions}, props) {
+    let conn = state.oada.defaultConn;
     await actions.oada.get({
       path: '/bookmarks/soils/tabular/mapunit',
       tree,
     })
+    let mu = state.oada[conn].bookmarks.soils.tabular.mapunit;
+    /*
+    await Promise.map(Object.keys(mu), async (key) => {
+      await actions.oada.get({
+        path: `/bookmarks/soils/tabular/mapunit/${key}`,
+        tree,
+      })
+    }, {concurrency: 10})
+    */
     await actions.oada.get({
       path: '/bookmarks/soils/tabular/component',
       tree,
